@@ -6,9 +6,9 @@ SAMPLE,FRR = glob_wildcards("raw_data/{sample}_{frr}.fastq.gz")
 # for co-assembly we only need the sample number
 SAMPLE_NUM = glob_wildcards("raw_data/{sample_num,\d+}[A-Z]+_R[\d].fastq.gz")
 
-include: "rules/preprocessing.smk"
-include: "rules/prebinning.smk"
-include: "rules/assembly.smk"
+include: "rules/preprocessing.smk" # fastqc, trimmomatic, bbduk, fastqc
+include: "rules/prebinning.smk" # pandaseq, kraken2, translate kraken2 and prebin
+include: "rules/assembly.smk" # megahit, metaspades
 
 rule all:
     input:
