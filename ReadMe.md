@@ -9,7 +9,9 @@ This script requires snakemake, fastqc, trimmomatic, bbduk, tiara, megahit, and 
 
 Kraken2 does not need to be installed since it runs through singularity, but the database needs to be installed: https://github.com/DerrickWood/kraken2/wiki/Manual
 
-To run the ```translate_kraken2.py``` file, taxonkit and subprocess packages need to be installed. Additionally, taxdump.tar.gz from NCBI and the dmp files within need to be copied to your home directory .taxonkit.
+To run the ```translate_kraken2.py``` file, taxonkit and subprocess packages need to be installed. Additionally, taxdump.tar.gz from NCBI and the dmp files within need to be copied to your home directory .taxonkit. 
+
+please download and uncompress ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz, and copy "names.dmp", "nodes.dmp", "delnodes.dmp", and "merged.dmp" to /users/path-to-your-account-directory/.taxonkit
 
 # Description of files
 
