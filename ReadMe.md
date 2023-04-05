@@ -6,7 +6,10 @@ information on the directories, and email me if there are any questions or issue
 # Usage and requirements
 
 This script requires snakemake, fastqc, trimmomatic, bbduk, tiara, megahit, and pandaseq to be installed. Each can be installed with conda.
+
 Kraken2 does not need to be installed since it runs through singularity, but the database needs to be installed: https://github.com/DerrickWood/kraken2/wiki/Manual
+
+To run the ```translate_kraken2.py``` file, taxonkit and subprocess packages need to be installed. Additionally, taxdump.tar.gz from NCBI and the dmp files within need to be copied to your home directory .taxonkit.
 
 # Description of files
 
@@ -24,6 +27,8 @@ The snakemake rules are contained in the ```rules``` directory.
 ```assembly.smk``` assembles prebinned reads with megahit and metaspades.
 
 ```tiara.smk``` is also available but is not currently included in the snakefile. To run tiara.smk, simply add include: tiara.smk to the Snakefile and expand its terminal outputs in the rule all.
+
+```translate_kraken2.py``` is a python script that functions similar to the translate-kraken script from the original version of kraken. This gives the full taxonomy of each entry from kraken2.
 
 Before running the slurm script, a directory called ```raw_data``` needs to be created and contain all the all the raw reads you want to run. Snakemake uses this directory to recognize the files
 
